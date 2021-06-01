@@ -1,0 +1,8 @@
+Changes since tag v0.85.3-classic
+
+commit a48b03cc6a88423fdb3569c6011bdfe58545aae5
+Author: Mizukichan <mizukichan@arcor.de>
+Date:   Sun Sep 13 17:37:34 2020 +0200
+
+    Added workaround for AQ40 Idols not being tracked when user is master looter (drycoded) (Fixes #85)
+
