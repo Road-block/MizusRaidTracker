@@ -2023,6 +2023,12 @@ function MRT_GetInstanceDifficulty()
     local _, _, iniDiff = GetInstanceInfo();
     -- handle non instanced territories as 40 player raids
     if (iniDiff == 0) then iniDiff = 9; end
+    if mrt.isBCC then
+        if (iniDiff == 173) then iniDiff = 1; end
+        if (iniDiff == 174) then iniDiff = 2; end
+        if (iniDiff == 175) then iniDiff = 3; end
+        if (iniDiff == 176) then iniDiff = 4; end
+    end
     return iniDiff
 end
 
@@ -2032,6 +2038,12 @@ function MRT_GetInstanceInfo()
     if (difficultyID == 0) then 
         difficultyID = 9;
         maxPlayers = 40;
+    end
+    if mrt.isBCC then
+        if (difficultyID == 173) then difficultyID = 1; end
+        if (difficultyID == 174) then difficultyID = 2; end
+        if (difficultyID == 175) then difficultyID = 3; end
+        if (difficultyID == 176) then difficultyID = 4; end
     end
     return name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceMapID, instanceGroupSize
 end
