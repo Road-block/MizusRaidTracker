@@ -108,10 +108,10 @@ local MRT_BossLootTableColDef = {
         ["DoCellUpdate"] = function(rowFrame, cellFrame, data, cols, row, realrow, column, fShow, self, ...)
             -- icon handling
             local lootNote = self:GetCell(realrow, column);
+            if (not cellFrame.SetBackdrop) and BackdropTemplateMixin then
+                Mixin(cellFrame, BackdropTemplateMixin)
+            end
             if fShow and lootNote then
-                if not cellFrame.SetBackdrop then
-                    Mixin(cellFrame, BackdropTemplateMixin)
-                end
                 cellFrame:SetBackdrop( { bgFile = "Interface\\BUTTONS\\UI-GuildButton-PublicNote-Up", insets = { left = 5, right = 5, top = 5, bottom = 5 }, } );
                 cellFrame:SetScript("OnEnter", function() 
                                                  MRT_GUI_ItemTT:SetOwner(cellFrame, "ANCHOR_RIGHT");
