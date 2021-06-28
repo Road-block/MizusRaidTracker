@@ -384,6 +384,7 @@ MRT_EncounterIDList = {
     [662] = 17225,              -- Nightbane
     
     -- Gruul's Lair
+    [649] = 18831,              -- Maulgar
     [650] = 19044,              -- Gruul
     
     -- Magtheridon's Lair
@@ -422,12 +423,12 @@ MRT_EncounterIDList = {
     [609] = 22917,              -- Illidan Stormrage
     
     -- Zul Aman
-    [2483] = 23576,          -- Nalorakk
-    [2482] = 23574,          -- Akil'zon
-    [2485] = 23577,          -- Halazzi
-    [2484] = 23578,          -- Jan'alai
-    [2486] = 24239,          -- Malacrass
-    [2487] = 23863,          -- Zul'jin
+    [1189] = 23574,             -- Akil'zon
+    [1190] = 23576,             -- Nalorakk
+    [1191] = 23578,             -- Jan'alai
+    [1192] = 23577,             -- Halazzi
+    [1193] = 24239,             -- Malacrass
+    [1194] = 23863,             -- Zul'jin
 
     -- Sunwell Plateau
     [724] = 24850,              -- Kalecgos
