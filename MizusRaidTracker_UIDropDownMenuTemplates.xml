@@ -201,16 +201,40 @@
 	
 	<Button name="MRT_Lib_UIDropDownListTemplate" hidden="true" frameStrata="DIALOG" enableMouse="true" virtual="true">
 		<Frames>
-			<Frame name="$parentBackdrop" setAllPoints="true" inherits="BackdropTemplate">
+			<Frame name="$parentBackdrop" setAllPoints="true">
       <Scripts>
       	<OnLoad>
+      		if Mixin and BackdropTemplateMixin then
+      		  Mixin(self,BackdropTemplateMixin)
+      		end
+      		local BACKDROP_DARK_DIALOG_32_32 = BACKDROP_DARK_DIALOG_32_32 or {
+						bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
+						edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+						tile = true,
+						tileEdge = true,
+						tileSize = 32,
+						edgeSize = 32,
+						insets = { left = 11, right = 11, top = 11, bottom = 10 },
+					};
       		self:SetBackdrop(BACKDROP_DARK_DIALOG_32_32);
       	</OnLoad>
       </Scripts>
 			</Frame>
-			<Frame name="$parentMenuBackdrop" setAllPoints="true" inherits="BackdropTemplate">
+			<Frame name="$parentMenuBackdrop" setAllPoints="true">
 				<Scripts>
 					<OnLoad>
+						if Mixin and BackdropTemplateMixin then
+						  Mixin(self,BackdropTemplateMixin)
+						end
+						local BACKDROP_MIXED_TOOLTIP_16_16 = BACKDROP_MIXED_TOOLTIP_16_16 or {
+							bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+							edgeFile = "Interface\\Glues\\Common\\Glue-Tooltip-Border",
+							tile = true,
+							tileEdge = true,
+							tileSize = 16,
+							edgeSize = 16,
+							insets = { left = 10, right = 5, top = 4, bottom = 9 },
+						};
 						self:SetBackdrop(BACKDROP_MIXED_TOOLTIP_16_16);
 						self:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
 						self:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b);

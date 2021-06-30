@@ -46,7 +46,7 @@
       </Anchors>
     </HighlightTexture>
   </Button>
-  <Frame name="MRT_GUI_OneRowDialog" toplevel="true" hidden="true" enableMouse="true" enableKeyboard="true" movable="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_GUI_OneRowDialog" toplevel="true" hidden="true" enableMouse="true" enableKeyboard="true" movable="true" parent="UIParent">
     <Size x="366" y="154"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -103,11 +103,23 @@
     </Frames>
     <Scripts>
       <OnLoad>
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
         self:SetBackdrop(BACKDROP_DIALOG_32_32);
       </OnLoad>
     </Scripts>
   </Frame>
-  <Frame name="MRT_GUI_TwoRowDialog" toplevel="true" hidden="true" enableMouse="true" enableKeyboard="true" movable="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_GUI_TwoRowDialog" toplevel="true" hidden="true" enableMouse="true" enableKeyboard="true" movable="true" parent="UIParent">
     <Size x="366" y="218"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -176,11 +188,23 @@
     </Frames>
     <Scripts>
       <OnLoad>
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
         self:SetBackdrop(BACKDROP_DIALOG_32_32);
       </OnLoad>
     </Scripts>
   </Frame>
-  <Frame name="MRT_GUI_ThreeRowDialog" toplevel="true" hidden="true" enableMouse="true" movable="true" enableKeyboard="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_GUI_ThreeRowDialog" toplevel="true" hidden="true" enableMouse="true" movable="true" enableKeyboard="true" parent="UIParent">
     <Size x="366" y="282"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -260,11 +284,23 @@
     </Frames>
     <Scripts>
       <OnLoad>
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
         self:SetBackdrop(BACKDROP_DIALOG_32_32);
       </OnLoad>
     </Scripts>
   </Frame>
-  <Frame name="MRT_GUI_FourRowDialog" toplevel="true" hidden="true" enableMouse="true" movable="true" enableKeyboard="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_GUI_FourRowDialog" toplevel="true" hidden="true" enableMouse="true" movable="true" enableKeyboard="true" parent="UIParent">
     <Size x="366" y="346"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -360,11 +396,23 @@
     </Frames>
     <Scripts>
       <OnLoad>
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
         self:SetBackdrop(BACKDROP_DIALOG_32_32);
       </OnLoad>
     </Scripts>
   </Frame>
-  <Frame name="MRT_GUIFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true" inherits="BackdropTemplate">
+  <Frame name="MRT_GUIFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
     <Size x="800" y="606"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -590,6 +638,18 @@
     <Scripts>
       <OnLoad>
         self:RegisterForDrag("LeftButton");
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
         self:SetBackdrop(BACKDROP_DIALOG_32_32);
       </OnLoad>
       <OnDragStart>self:StartMoving();</OnDragStart>

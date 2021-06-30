@@ -8,7 +8,7 @@
       <OnEvent>MRT_OnEvent(self, event, ...);</OnEvent>
     </Scripts>
   </Frame>
-  <Frame name="MRT_GetDKPValueFrame" toplevel="true" frameStrata="DIALOG" movable="true" hidden="true" enableMouse="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_GetDKPValueFrame" toplevel="true" frameStrata="DIALOG" movable="true" hidden="true" enableMouse="true" parent="UIParent">
     <Size x="365" y="285"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"></Anchor>
@@ -184,12 +184,27 @@
       </Frame>
     </Frames>
     <Scripts>
-      <OnLoad>self:RegisterForDrag("LeftButton");self:SetBackdrop(BACKDROP_DIALOG_32_32);</OnLoad>
+      <OnLoad>
+        self:RegisterForDrag("LeftButton");
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
+        self:SetBackdrop(BACKDROP_DIALOG_32_32);
+      </OnLoad>
       <OnDragStart>self:StartMoving();</OnDragStart>
       <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
     </Scripts>
   </Frame>
-  <Frame name="MRT_ExportFrame" toplevel="true" frameStrata="DIALOG" movable="true" hidden="true" enableKeyboard="true" enableMouse="true" parent="UIParent" inherits="BackdropTemplate">
+  <Frame name="MRT_ExportFrame" toplevel="true" frameStrata="DIALOG" movable="true" hidden="true" enableKeyboard="true" enableMouse="true" parent="UIParent">
     <Size x="450" y="348"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
@@ -251,7 +266,7 @@
           <OnClick>MRT_ExportFrame_Hide();</OnClick>
         </Scripts>
       </Button>
-      <Frame name="$parent_EB_Background" inherits="BackdropTemplate">
+      <Frame name="$parent_EB_Background">
         <Size x="386" y="160"/>
         <Anchors>
           <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
@@ -260,13 +275,40 @@
         </Anchors>
         <Scripts>
           <OnLoad>
+            if Mixin and BackdropTemplateMixin then
+              Mixin(self,BackdropTemplateMixin)
+            end
+            local BACKDROP_TOOLTIP_16_16_5555 = BACKDROP_TOOLTIP_16_16_5555 or {
+              bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+              edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+              tile = true,
+              tileEdge = true,
+              tileSize = 16,
+              edgeSize = 16,
+              insets = { left = 5, right = 5, top = 5, bottom = 5 },
+            };
             self:SetBackdrop(BACKDROP_TOOLTIP_16_16_5555);
           </OnLoad>
         </Scripts>
       </Frame>
     </Frames>
     <Scripts>
-      <OnLoad>self:RegisterForDrag("LeftButton");self:SetBackdrop(BACKDROP_DIALOG_32_32);</OnLoad>
+      <OnLoad>
+        self:RegisterForDrag("LeftButton");
+        if Mixin and BackdropTemplateMixin then
+          Mixin(self,BackdropTemplateMixin)
+        end
+        local BACKDROP_DIALOG_32_32 = BACKDROP_DIALOG_32_32 or {
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+          tile = true,
+          tileEdge = true,
+          tileSize = 32,
+          edgeSize = 32,
+          insets = { left = 11, right = 12, top = 12, bottom = 11 },
+        };
+        self:SetBackdrop(BACKDROP_DIALOG_32_32);
+      </OnLoad>
       <OnDragStart>self:StartMoving();</OnDragStart>
       <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
     </Scripts>

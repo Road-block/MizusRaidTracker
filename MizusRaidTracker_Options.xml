@@ -149,7 +149,7 @@
             </OnClick>
         </Scripts>
       </CheckButton>
-      <Slider name="$parent_Prunning_Slider" enableMouse="true" valueStep="1" orientation="HORIZONTAL" defaultValue="90" minValue="30" maxValue="120" inherits="BackdropTemplate">
+      <Slider name="$parent_Prunning_Slider" enableMouse="true" valueStep="1" orientation="HORIZONTAL" defaultValue="90" minValue="30" maxValue="120">
         <Size x="200" y="20"/>
         <Anchors>
           <Anchor point="TOPLEFT" relativeTo="$parent_Prunning_CB" relativePoint="BOTTOMLEFT" y="-5"/>
@@ -167,6 +167,18 @@
         </Layers>
         <Scripts>
           <OnLoad>
+            if Mixin and BackdropTemplateMixin then
+              Mixin(self,BackdropTemplateMixin)
+            end
+            local BACKDROP_SLIDER_8_8 = BACKDROP_SLIDER_8_8 or {
+              bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
+              edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
+              tile = true,
+              tileEdge = true,
+              tileSize = 8,
+              edgeSize = 8,
+              insets = { left = 3, right = 3, top = 6, bottom = 6 },
+            };
             self:SetBackdrop(BACKDROP_SLIDER_8_8);
           </OnLoad>
 		      <OnValueChanged>
@@ -598,7 +610,7 @@
       </Layer>
     </Layers>
     <Frames>
-      <Slider name="$parent_MinItemQualityToLog_Slider" enableMouse="true" valueStep="1" orientation="HORIZONTAL" defaultValue="0" minValue="0" maxValue="6" inherits="BackdropTemplate">
+      <Slider name="$parent_MinItemQualityToLog_Slider" enableMouse="true" valueStep="1" orientation="HORIZONTAL" defaultValue="0" minValue="0" maxValue="6">
         <Size x="200" y="20"/>
         <Anchors>
           <Anchor point="TOPLEFT" relativeTo="$parent_Title" relativePoint="BOTTOMLEFT" y="-50"/>
@@ -621,6 +633,18 @@
         </Layers>
         <Scripts>
           <OnLoad>
+            if Mixin and BackdropTemplateMixin then
+              Mixin(self,BackdropTemplateMixin)
+            end
+            local BACKDROP_SLIDER_8_8 = BACKDROP_SLIDER_8_8 or {
+              bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
+              edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
+              tile = true,
+              tileEdge = true,
+              tileSize = 8,
+              edgeSize = 8,
+              insets = { left = 3, right = 3, top = 6, bottom = 6 },
+            };
             self:SetBackdrop(BACKDROP_SLIDER_8_8);
           </OnLoad>
 		      <OnValueChanged>
@@ -689,7 +713,7 @@
             </OnClick>
         </Scripts>
       </CheckButton>
-      <Slider name="$parent_MinItemQualityToGetCost_Slider" enableMouse="true" defaultValue="0" minValue="0" maxValue="6" valueStep="1" orientation="HORIZONTAL" inherits="BackdropTemplate">
+      <Slider name="$parent_MinItemQualityToGetCost_Slider" enableMouse="true" defaultValue="0" minValue="0" maxValue="6" valueStep="1" orientation="HORIZONTAL">
         <Size x="200" y="20"/>
         <Anchors>
           <Anchor point="TOPLEFT" relativeTo="$parent_AskForDKPValuePersonal_CB" relativePoint="BOTTOMLEFT" x="-16" y="-16"/>
@@ -712,6 +736,18 @@
         </Layers>
         <Scripts>
           <OnLoad>
+            if Mixin and BackdropTemplateMixin then
+              Mixin(self,BackdropTemplateMixin)
+            end
+            local BACKDROP_SLIDER_8_8 = BACKDROP_SLIDER_8_8 or {
+              bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
+              edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
+              tile = true,
+              tileEdge = true,
+              tileSize = 8,
+              edgeSize = 8,
+              insets = { left = 3, right = 3, top = 6, bottom = 6 },
+            };
             self:SetBackdrop(BACKDROP_SLIDER_8_8);
           </OnLoad>
          <OnValueChanged>
@@ -990,7 +1026,7 @@
                 </Layers>
                 <FontString inherits="ChatFontNormal"/>
               </EditBox>
-              <Slider name="$parent_GADuration_Slider" enableMouse="true" defaultValue="0" minValue="1" maxValue="5" valueStep="1" orientation="HORIZONTAL" inherits="BackdropTemplate">
+              <Slider name="$parent_GADuration_Slider" enableMouse="true" defaultValue="0" minValue="1" maxValue="5" valueStep="1" orientation="HORIZONTAL">
                 <Size x="200" y="20"/>
                 <Anchors>
                   <Anchor point="TOPLEFT" relativeTo="$parent_GA_Trigger_EB" relativePoint="BOTTOMLEFT">
@@ -1015,6 +1051,18 @@
                 </Layers>
                 <Scripts>
                   <OnLoad>
+                    if Mixin and BackdropTemplateMixin then
+                      Mixin(self,BackdropTemplateMixin)
+                    end
+                    local BACKDROP_SLIDER_8_8 = BACKDROP_SLIDER_8_8 or {
+                      bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
+                      edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
+                      tile = true,
+                      tileEdge = true,
+                      tileSize = 8,
+                      edgeSize = 8,
+                      insets = { left = 3, right = 3, top = 6, bottom = 6 },
+                    };
                     self:SetBackdrop(BACKDROP_SLIDER_8_8);
                   </OnLoad>
           			 <OnValueChanged>
@@ -1087,16 +1135,28 @@
                   </EditBox>
                 </ScrollChild>
               </ScrollFrame>
-              <Frame name="$parent_GA_CustomText_EB_Scrollframe_Background" inherits="BackdropTemplate">
+              <Frame name="$parent_GA_CustomText_EB_Scrollframe_Background">
                 <Size x="336" y="90"/>
                 <Anchors>
                   <Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="$parent_GA_CustomText_EB_Scrollframe" x="-8" y="5"/>
                 </Anchors>
-                <Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-                  <EdgeSize val="16"/>
-                  <TileSize val="16"/>
-                  <BackgroundInsets left="5" right="5" top="5" bottom="5"/>
-                </Backdrop>
+                <Script>
+                  <OnLoad>
+                    local BACKDROP_TOOLTIP_16_16_5555 = BACKDROP_TOOLTIP_16_16_5555 or {
+                      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+                      edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+                      tile = true,
+                      tileEdge = true,
+                      tileSize = 16,
+                      edgeSize = 16,
+                      insets = { left = 5, right = 5, top = 5, bottom = 5 },
+                    };
+                    if Mixin and BackdropTemplateMixin then
+                      Mixin(self, BackdropTemplateMixin)
+                    end
+                    self:SetBackdrop(BACKDROP_TOOLTIP_16_16_5555);
+                  </OnLoad>
+                </Script>
               </Frame>
             </Frames>
           </Frame>
