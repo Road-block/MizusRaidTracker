@@ -411,7 +411,7 @@ function MRT_Options_ExportPanel_Create_ChooseExport_DropDownMenu()
         MRT_L.Options["EP_BBCode"],
         MRT_L.Options["EP_BBCode_wowhead"],
         MRT_L.Options["EP_HTML"],
-		MRT_L.Options["EP_LootList_Text"],
+	MRT_L.Options["EP_LootList_Text"],
     }
     -- Click handler function
     local function OnClick(self)
