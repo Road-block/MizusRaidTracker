@@ -161,6 +161,8 @@ EQdkp(-Plus) CT_RaidTrackerImport 1.16.x]=]
 	MRT_L.Options["EP_HTML"] = "HTML с CSS со ссылками на WoWHead"
 	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
 	MRT_L.Options["EP_Plain_Text"] = "Простой текст"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "Время и дата"
 	MRT_L.Options["EP_TextExportTitleText"] = "Настр. текста при экспорте"
 	MRT_L.Options["EP_Title"] = "Экспорт"

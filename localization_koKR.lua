@@ -156,6 +156,8 @@ EQdkp(-Plus) CT_RaidTrackerImport 1.16.x]=]
 	MRT_L.Options["EP_HTML"] = "Wowhead 링크가 추가된 CSS 기반 HTML"
 	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
 	MRT_L.Options["EP_Plain_Text"] = "일반 텍스트"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "날짜와 시간 형식 설정"
 	MRT_L.Options["EP_TextExportTitleText"] = "텍스트 내보내기 설정"
 	MRT_L.Options["EP_Title"] = "내보내기"

@@ -146,6 +146,8 @@ Configurações de exportação compatíveis com CTRT]=]
 	MRT_L.Options["EP_HTML"] = "CSS baseado em HTML com links do wowhead"
 	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
 	MRT_L.Options["EP_Plain_Text"] = "Texto simples"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "Definir formato de data e hora"
 	MRT_L.Options["EP_TextExportTitleText"] = "Configurações de exportação de texto"
 	MRT_L.Options["EP_Title"] = "Exportar"
