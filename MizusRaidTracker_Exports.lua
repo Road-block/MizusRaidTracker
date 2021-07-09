@@ -127,8 +127,8 @@ function MRT_CreateRaidExport(raidID, bossID, difficulty)
     -- 8: CSS based HTML with wowhead links
     elseif (MRT_Options["Export_ExportFormat"] == 8) then
         dkpstring = MRT_CreateHTMLExport(raidID, bossID, difficulty)
-	-- 9: Onslaught Loot List Format
-	elseif (MRT_Options["Export_ExportFormat"] == 9) then
+    -- 9: Onslaught Loot List Format
+    elseif (MRT_Options["Export_ExportFormat"] == 9) then
         dkpstring = MRT_CreateLootSheetExport(raidID, bossID, difficulty)
     end
     -- Prepare possible explanation test
