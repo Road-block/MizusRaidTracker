@@ -230,6 +230,8 @@ EQdkp-Plus Raid-Log-Import 0.5.6.x]=]
 	--[[Translation missing --]]
 	MRT_L.Options["EP_Plain_Text"] = "Plain Text"
 	--[[Translation missing --]]
+	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
+	--[[Translation missing --]]
 	MRT_L.Options["EP_SetDateTimeFormat"] = "Set format of date and time"
 	--[[Translation missing --]]
 	MRT_L.Options["EP_TextExportTitleText"] = "Text export settings"

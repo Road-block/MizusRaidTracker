@@ -127,6 +127,9 @@ function MRT_CreateRaidExport(raidID, bossID, difficulty)
     -- 8: CSS based HTML with wowhead links
     elseif (MRT_Options["Export_ExportFormat"] == 8) then
         dkpstring = MRT_CreateHTMLExport(raidID, bossID, difficulty)
+    -- 9: Onslaught Loot List Format
+    elseif (MRT_Options["Export_ExportFormat"] == 9) then
+        dkpstring = MRT_CreateLootSheetExport(raidID, bossID, difficulty)
     end
     -- Prepare possible explanation test
     if ( (MRT_Options["Export_ExportFormat"] == 1 and MRT_Options["Export_CTRT_RLIPerBossAttendanceFix"]) or (MRT_Options["Export_ExportFormat"] == 2 and MRT_Options["Export_EQDKP_RLIPerBossAttendanceFix"]) ) then
@@ -1424,5 +1427,40 @@ function MRT_CreateHTMLExport(raidID, bossID, difficulty)
         export = export.."</div>";
     end
     export = export.."</div>";
+    return export;
+end
+
+function MRT_CreateLootSheetExport(raidID, bossID, difficulty)
+	local export="";
+    local keyPlayerList = {};
+    local numPlayerList = {};
+        for key, val in pairs(MRT_RaidLog[raidID]["Players"]) do
+            keyPlayerList[val["Name"]] = val["Name"];
+        end
+        for key, val in pairs(keyPlayerList) do
+            tinsert(numPlayerList, mrt:FormatPlayerName(val, realm));
+        end
+        table.sort(numPlayerList);
+
+    local function createItemInfoString(raidID, itemID, realm)
+        local bossID = MRT_RaidLog[raidID]["Loot"][itemID]["BossNumber"];
+        local itemString = "";
+        itemString = itemString.."MRT_RaidLog[raidID]["Loot"][itemID]["ItemName"]";
+            
+            
+        return itemString;
+    end
+
+	raiddate = date(MRT_Options["Export_DateTimeFormat"], MRT_RaidLog[raidID]["StartTime"]);
+    export = export.."Attendees:\n\n";    
+    export = export..table.concat(numPlayerList, ";");
+    export = export.."\n\n Loot:\n\n";
+    
+    local lootoutput = "";
+	for idx, val in ipairs(MRT_RaidLog[raidID]["Loot"]) do
+         export = export..raiddate..";["..val["ItemName"].."];"..val["Looter"].."\n"
+	end
+
+
     return export;
 end
