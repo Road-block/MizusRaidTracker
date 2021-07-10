@@ -1,6 +1,6 @@
 ## Interface: 11307
 ## Title: Mizus RaidTracker
-## Version: v0.85.9-era
+## Version: v0.86-era
 ## Notes: Tracks raid, loot and attendance
 ## Author: Mîzukichan@EU-Antonidas
 ## LoadOnDemand: 0
