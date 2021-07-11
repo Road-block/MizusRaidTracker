@@ -4,13 +4,16 @@
 -- ********************************************************
 --
 -- This addon is written and copyrighted by:
---    * Mîzukichan @ EU-Antonidas (2010-2019)
+--    * Mîzukichan @ EU-Antonidas (2010-2021)
 --
 -- Contributors:
 --    * Kevin (HTML-Export) (2010)
 --    * Knoxa (various MoP fixes) (2013)
 --    * Kravval (various MoP fixes, enhancements to boss kill detection) (2013)
 --    * kjellt77 (base for tracking support while being solo or in a group) (2019)
+--    * MrFIXIT (various fixes for Classic and TBC-classic) (2021)
+--    * saberboi (JSON-Export) (2021)
+--    * sbaydush (Onslaught Loot List Export) (2021)
 --
 --    This file is part of Mizus RaidTracker.
 --
@@ -41,7 +44,7 @@ local _O = MRT_Options
 MRT_ADDON_TITLE = GetAddOnMetadata("MizusRaidTracker", "Title");
 MRT_ADDON_VERSION = GetAddOnMetadata("MizusRaidTracker", "Version");
 --[===[@debug@
-MRT_ADDON_VERSION = "v0.84.3-classic"
+MRT_ADDON_VERSION = "v0.91.0"
 --@end-debug@]===]
 MRT_NumOfCurrentRaid = nil;
 MRT_NumOfLastBoss = nil;
@@ -517,8 +520,9 @@ hooksecurefunc("GiveMasterLoot", MRT_Hook_GiveMasterLoot);
 ------------------
 function MRT_Initialize(frame)
     -- Detect game version
-    mrt.isClassic = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC
-    mrt.isBCC = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+    mrt.isRetail = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_MAINLINE);
+    mrt.isClassic = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC);
+    mrt.isBCC = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC);
     -- Update settings and DB
     MRT_UpdateSavedOptions();
     MRT_VersionUpdate();
@@ -544,7 +548,7 @@ function MRT_Initialize(frame)
                 MRT_GUI_Toggle();
             elseif (button == "RightButton") then
                 InterfaceOptionsFrame_OpenToCategory("Mizus RaidTracker");
-                C_Timer.After(2, function() InterfaceOptionsFrame_OpenToCategory("Mizus RaidTracker"); end)
+                C_Timer.After(0.5, function() InterfaceOptionsFrame_OpenToCategory("Mizus RaidTracker"); end)
             end
         end,
         OnTooltipShow = function(tooltip)
@@ -700,13 +704,18 @@ function MRT_UpdateSavedOptions()
         MRT_Options["General_OptionsVersion"] = 19;
     end
     if MRT_Options["General_OptionsVersion"] == 19 then
-        -- Update for existing installations on WoW Classic: Force enable 
+        -- Update for existing installations on WoW Classic: Force enable on first load
         if (mrt.isClassic) then
             MRT_Options["Tracking_LogClassicRaids"] = true;
-        elseif (mrt.isBCC) then
-            MRT_Options["Tracking_LogBCRaids"] = true;
         end
         MRT_Options["General_OptionsVersion"] = 20;
+    end
+    if MRT_Options["General_OptionsVersion"] == 20 then
+        -- Update for existing installations on WoW BC Classic: Force enable on first load
+        if (mrt.isBCC) then
+            MRT_Options["Tracking_LogBCRaids"] = true;
+        end
+        MRT_Options["General_OptionsVersion"] = 21;
     end
 end
 
@@ -991,42 +1000,42 @@ function MRT_CheckZoneAndSizeStatus()
     if (diffID == 6) then diffID = 4; end
     if (MRT_RaidZones[areaID]) then
         -- Check if the current raidZone is a zone which should be tracked
-        if (not mrt.isClassic and MRT_PvPRaids[areaID] and not MRT_Options["Tracking_LogAVRaids"]) then 
+        if (mrt.isRetail and MRT_PvPRaids[areaID] and not MRT_Options["Tracking_LogAVRaids"]) then 
             MRT_Debug("This instance is a PvP-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesWarlords[areaID] and not MRT_Options["Tracking_LogWarlordsRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesWarlords[areaID] and not MRT_Options["Tracking_LogWarlordsRaids"]) then
             MRT_Debug("This instance is a Draenor-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesPanadria[areaID] and not MRT_Options["Tracking_LogMoPRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesPanadria[areaID] and not MRT_Options["Tracking_LogMoPRaids"]) then
             MRT_Debug("This instance is a Pandaria-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesCataclysm[areaID] and not MRT_Options["Tracking_LogCataclysmRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesCataclysm[areaID] and not MRT_Options["Tracking_LogCataclysmRaids"]) then
             MRT_Debug("This instance is a Cataclysm-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesWotLK[areaID] and not MRT_Options["Tracking_LogWotLKRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesWotLK[areaID] and not MRT_Options["Tracking_LogWotLKRaids"]) then
             MRT_Debug("This instance is a WotLK-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesBC[areaID] and not MRT_Options["Tracking_LogBCRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesBC[areaID] and not MRT_Options["Tracking_LogBCRaids"]) then
             MRT_Debug("This instance is a BC-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (not mrt.isClassic and MRT_LegacyRaidZonesClassic[areaID] and not MRT_Options["Tracking_LogClassicRaids"]) then
+        if (mrt.isRetail and MRT_LegacyRaidZonesClassic[areaID] and not MRT_Options["Tracking_LogClassicRaids"]) then
             MRT_Debug("Retail: This instance is a Classic-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
         end
-        if (mrt.isClassic and mrt.raidZonesClassic[areaID] and not MRT_Options["Tracking_LogClassicRaids"]) then
+        if ((mrt.isClassic or mrt.isBCC) and mrt.raidZonesClassic[areaID] and not MRT_Options["Tracking_LogClassicRaids"]) then
             MRT_Debug("Classic: This instance is a Classic-Raid and tracking of those is disabled.");
             if (MRT_NumOfCurrentRaid) then MRT_EndActiveRaid(); end
             return;
@@ -1438,14 +1447,16 @@ function MRT_AutoAddLoot(chatmsg)
     -- ToDo: This will ignore some items, like personal BoE in Legion... - needs a proper item duplication detection... somehow...
     local itemName, _, itemId, itemString, itemRarity, itemColor, itemLevel, _, itemType, itemSubType, _, _, _, _, itemClassID, itemSubClassID = MRT_GetDetailedItemInformation(itemLink);
     if (not itemName == nil) then MRT_Debug("Panic! Item information lookup failed horribly. Source: MRT_AutoAddLoot()"); return; end
-    if (mrt.isClassic and IsMasterLooter() and not mrt.DBAQIdolIDs[itemId]) then 
-        MRT_Debug("Current player is master looter. Stopping chat message processing...");
-        return;
-    end
+    -- Master looter check replaced with duplication check. This should now track both and remove duplicates. Hopefully.
+    -- if (not mrt.isRetail and IsMasterLooter() and not mrt.DBAQIdolIDs[itemId]) then 
+    --    MRT_Debug("Current player is master looter. Stopping chat message processing...");
+    --    return;
+    -- end
 	MRT_AutoAddLootItem(playerName, itemLink, itemCount);
 end	
 
--- filter out duplicate loot tracking (fx ML hook + chat processing)
+-- filter out duplicate loot tracking (fix ML hook + chat processing) (taken from MrFIXIT fixes)
+-- The main issue was that chat processing wasn't being canceled in BCC, but this might actually fix issue #85
 local lastEntry
 function MRT_LootItemDupe(playerName, itemLink, itemCount)
     local now = GetTime()
@@ -1470,7 +1481,7 @@ function MRT_AutoAddLootItem(playerName, itemLink, itemCount)
 	if (not playerName) then return; end
 	if (not itemLink) then return; end
 	if (not itemCount) then return; end
-    if MRT_LootItemDupe(playerName, itemLink, itemCount) then return end
+    if ((mrt.isClassic or mrt.isBCC) and MRT_LootItemDupe(playerName, itemLink, itemCount)) then return; end
 	MRT_Debug("MRT_AutoAddLootItem called - playerName: "..playerName.." - itemLink: "..itemLink.." - itemCount: "..itemCount);
     -- example itemLink: |cff9d9d9d|Hitem:7073:0:0:0:0:0:0:0|h[Broken Fang]|h|r (outdated!)
     local itemName, _, itemId, itemString, itemRarity, itemColor, itemLevel, _, itemType, itemSubType, _, _, _, _, itemClassID, itemSubClassID = MRT_GetDetailedItemInformation(itemLink);
@@ -2044,7 +2055,7 @@ function MRT_GetInstanceDifficulty()
     local _, _, iniDiff = GetInstanceInfo();
     -- handle non instanced territories as 40 player raids
     if (iniDiff == 0) then iniDiff = 9; end
-    if mrt.isBCC then
+    if (mrt.isBCC) then
         if (iniDiff == 173) then iniDiff = 1; end
         if (iniDiff == 174) then iniDiff = 2; end
         if (iniDiff == 175) then iniDiff = 3; end
@@ -2060,7 +2071,7 @@ function MRT_GetInstanceInfo()
         difficultyID = 9;
         maxPlayers = 40;
     end
-    if mrt.isBCC then
+    if (mrt.isBCC) then
         if (difficultyID == 173) then difficultyID = 1; end
         if (difficultyID == 174) then difficultyID = 2; end
         if (difficultyID == 175) then difficultyID = 3; end

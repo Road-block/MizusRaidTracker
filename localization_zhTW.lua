@@ -150,10 +150,12 @@ to or below 180 seconds to avoid attendance issues.]=]
 	MRT_L.Options["EP_EQDKP_Plus_XML"] = "EQdkp-Plus XML"
 	MRT_L.Options["EP_EQDKPTitleText"] = "EQdkp-Plus XML設定"
 	MRT_L.Options["EP_HTML"] = "在 CSS based HTML中使用wowhead鏈結"
-	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
-	MRT_L.Options["EP_Plain_Text"] = "純文字格式"
 	--[[Translation missing --]]
-	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
+	MRT_L.Options["EP_JSON"] = "JSON"
+	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_Onslaught_LootList"] = "Onslaught Loot List"
+	MRT_L.Options["EP_Plain_Text"] = "純文字格式"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "設定日期與時間格式"
 	MRT_L.Options["EP_TextExportTitleText"] = "文字匯出設定"
 	MRT_L.Options["EP_Title"] = "匯出"

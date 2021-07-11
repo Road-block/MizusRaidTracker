@@ -173,10 +173,12 @@ EQdkp-Plus Raid-Log-Import 0.5.6.x]=]
 	--[[Translation missing --]]
 	MRT_L.Options["EP_HTML"] = "CSS based HTML with wowhead links"
 	--[[Translation missing --]]
-	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
-	MRT_L.Options["EP_Plain_Text"] = "Texto plano"
+	MRT_L.Options["EP_JSON"] = "JSON"
 	--[[Translation missing --]]
-	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
+	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_Onslaught_LootList"] = "Onslaught Loot List"
+	MRT_L.Options["EP_Plain_Text"] = "Texto plano"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "Ajustar el formato de fecha y hora"
 	MRT_L.Options["EP_TextExportTitleText"] = "Configuración de exportación de texto"
 	MRT_L.Options["EP_Title"] = "Exportar"

@@ -14,8 +14,9 @@ mrt.diffIDsHeroic = { 2, 5, 6, 11, 15 }
 mrt.raidSizes = { 5, 5, 10, 25, 10, 25, 25, 5, 40, 40, 3, 3, 40, 30, 30, 20, 30, 5, 5, 5 }
 
 -- Detect game version
-mrt.isClassic = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC
-mrt.isBCC = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+mrt.isRetail = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_MAINLINE);
+mrt.isClassic = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC);
+mrt.isBCC = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC);
 
 -- these are probably not needed anymore
 MRT_ItemColorValues = {
@@ -71,9 +72,9 @@ MRT_RaidZones = {
     [409] = true,       -- Molten Core
     [509] = true,       -- Ruins of Ahn'Qiraj
     [531] = true,       -- Temple of Ahn'Qiraj
-    -- Burning Crusade - BC only
+    -- Burning Crusade - Classic only
     [568] = true,       -- Zul'Aman
-    -- Burning Crusade
+    -- Burning Crusade - Retail & Classic
     [532] = true,       -- Karazhan
     [565] = true,       -- Gruul's Lair
     [544] = true,       -- Magtheridon's Lair
@@ -121,6 +122,9 @@ MRT_RaidZones = {
     [2096] = true,      -- Crucible of Storms
     [2164] = true,      -- Eternal Palace
     [2217] = true,      -- Ny'alotha, the Waking City
+    -- Shadowlands
+    [2296] = true,      -- Castle Nathria
+    [2435] = true,      -- Sanctum of Domination
 }
 
 MRT_LegacyRaidZonesLegion = {
@@ -194,6 +198,7 @@ mrt.raidZonesClassic = {
     [531] = true,       -- Temple of Ahn'Qiraj
     [309] = true,       -- Zul'Gurub
 }
+
 mrt.raidZonesBCC = {
     [532] = true,       -- Karazhan
     [565] = true,       -- Gruul's Lair
@@ -367,9 +372,21 @@ MRT_EncounterIDList = {
     [716] = 15517,              -- Ouro
     
     
-    -----------------------
-    --  Burning Crusade  --
-    -----------------------
+    --------------------------------------
+    --  Burning Crusade - Classic only  --
+    --------------------------------------
+    -- Zul Aman
+    [1189] = 23574,             -- Akil'zon
+    [1190] = 23576,             -- Nalorakk
+    [1191] = 23578,             -- Jan'alai
+    [1192] = 23577,             -- Halazzi
+    [1193] = 24239,             -- Malacrass
+    [1194] = 23863,             -- Zul'jin
+    
+    
+    -------------------------------
+    --  Burning Crusade - Retail --
+    -------------------------------
     -- Karazhan
     [652] = 16151,              -- Attumen the Huntsman
     [653] = 15687,              -- Moroes
@@ -421,14 +438,6 @@ MRT_EncounterIDList = {
     [607] = 22947,              -- Mother Shahraz
     [608] = 22949,              -- The Illidari Council
     [609] = 22917,              -- Illidan Stormrage
-    
-    -- Zul Aman
-    [1189] = 23574,             -- Akil'zon
-    [1190] = 23576,             -- Nalorakk
-    [1191] = 23578,             -- Jan'alai
-    [1192] = 23577,             -- Halazzi
-    [1193] = 24239,             -- Malacrass
-    [1194] = 23863,             -- Zul'jin
 
     -- Sunwell Plateau
     [724] = 24850,              -- Kalecgos
@@ -764,6 +773,34 @@ MRT_EncounterIDList = {
     [2345] = 158328,            -- Il'gynoth, Corruption Reborn
     [2337] = 157439,            -- Carapace of N'Zoth
     [2344] = 158041,            -- N'Zoth, the Corruptor
+    
+    
+    -------------------
+    --  Shadowlands  --
+    -------------------
+    -- Castle Nathria
+    [2398] = 164406,            -- Shriekwing
+    [2418] = 165066,            -- Huntsman Altimor
+    [2383] = 164261,            -- Hungering Destroyer
+    [2405] = 166644,            -- Artificer Xy'mox
+    [2402] = 165759,            -- Sun King's Salvation
+    [2406] = 165521,            -- Lady Inerva Darkvein
+    [2412] = 166969,            -- The Council of Blood -- Id Baroness Frieda
+    [2399] = 164407,            -- Sludgefist
+    [2417] = 168112,            -- Stone Legion Generals -- Id General Kaal
+    [2407] = 167406,            -- Sire Denathrius
+    
+    -- Sanctum of Domination
+    [2423] = 175611,            -- The Tarragrue
+    [2433] = 175725,            -- The Eye of the Jailer
+    [2429] = 175726,            -- The Nine
+    [2432] = 175729,            -- Remnant of Nerzhul
+    [2434] = 175727,            -- Soulrender Dormazain
+    [2430] = 176523,            -- Painsmith Raznal
+    [2436] = 175731,            -- Guardian of the First Ones
+    [2431] = 175730,            -- Fatescribe Roh Kalo
+    [2422] = 175559,            -- Kel Thuzad
+    [2435] = 178423,            -- Sylvanas Windrunner
     
 }
 

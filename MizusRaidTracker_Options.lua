@@ -4,7 +4,7 @@
 -- *******************************************************
 --
 -- This addon is written and copyrighted by:
---    * Mîzukichan @ EU-Antonidas (2010-2019)
+--    * Mîzukichan @ EU-Antonidas (2010-2021)
 --
 --    This file is part of Mizus RaidTracker.
 --
@@ -411,7 +411,8 @@ function MRT_Options_ExportPanel_Create_ChooseExport_DropDownMenu()
         MRT_L.Options["EP_BBCode"],
         MRT_L.Options["EP_BBCode_wowhead"],
         MRT_L.Options["EP_HTML"],
-	MRT_L.Options["EP_LootList_Text"],
+        MRT_L.Options["EP_Onslaught_LootList"],
+        MRT_L.Options["EP_JSON"],
     }
     -- Click handler function
     local function OnClick(self)

@@ -24,40 +24,31 @@ if GetLocale() ~= "ruRU" then return end
 --  Bossyells  --
 -----------------
 -- Yells/Ulduar
-	--[[Translation missing --]]
-	_L.yells[529]["Algalon"] = "I have seen worlds bathed in the Makers' flames, their denizens fading without as much as a whimper. Entire planetary systems born and razed in the time that it takes your mortal hearts to beat once. Yet all throughout, my own heart devoid of emotion... of empathy. I. Have. Felt. Nothing. A million-million lives wasted. Had they all held within them your tenacity? Had they all loved life as you do?"
-	--[[Translation missing --]]
-	_L.yells[529]["Freya"] = "His hold on me dissipates. I can see clearly once more. Thank you, heroes."
-	--[[Translation missing --]]
-	_L.yells[529]["Hodir"] = "I... I am released from his grasp... at last."
-	--[[Translation missing --]]
-	_L.yells[529]["Mimiron"] = "It would appear that I've made a slight miscalculation. I allowed my mind to be corrupted by the fiend in the prison, overriding my primary directive. All systems seem to be functional now. Clear."
-	--[[Translation missing --]]
-	_L.yells[529]["Thorim"] = "Stay your arms! I yield!"
+	_L.yells[529]["Algalon"] = "Я видел миры, охваченные пламенем Творцов. Их жители гибли, не успев издать ни звука. Я был свидетелем того, как галактики рождались и умирали в мгновение ока. И все время я оставался холодным... и безразличным. Я... не чувствовал..."
+	_L.yells[529]["Freya"] = "Он больше не властен надо мной. Мой взор снова ясен. Благодарю вас, герои."
+	_L.yells[529]["Hodir"] = "Наконец-то я... свободен от его оков..."
+	_L.yells[529]["Mimiron"] = "Очевидно, я совершил небольшую ошибку в расчетах. Пленный злодей затуманил мой разум и заставил меня отклониться от инструкций. Сейчас все системы в норме. Конец связи."
+	_L.yells[529]["Thorim"] = "Придержите мечи! Я сдаюсь."
 
 -- Yells/Trials_of_the_Crusader
 	--[[Translation missing --]]
 	_L.yells[543]["Faction Champions"] = "A shallow and tragic victory. We are weaker as a whole from the losses suffered today. Who but the Lich King could benefit from such foolishness? Great warriors have lost their lives. And for what? The true threat looms ahead - the Lich King awaits us all in death."
 
 -- Yells/Icecrown_Citadel
-	--[[Translation missing --]]
-	_L.yells[604]["Dreamwalker"] = "I AM RENEWED! Ysera grant me the favor to lay these foul creatures to rest!"
+	_L.yells[604]["Dreamwalker"] = "Я ИЗЛЕЧИЛАСЬ! Изера, даруй мне силу покончить с этими нечестивыми тварями."
 	--[[Translation missing --]]
 	_L.yells[604]["Icecrown Gunship Battle Alliance"] = "Don't say I didn't warn ya, scoundrels! Onward, brothers and sisters!"
 	--[[Translation missing --]]
 	_L.yells[604]["Icecrown Gunship Battle Horde"] = "The Alliance falter. Onward to the Lich King!"
 
 -- Yells/Ruby_Sanctum
-	--[[Translation missing --]]
-	_L.yells[609]["Halion"] = "Relish this victory, mortals, for it will be your last. This world will burn with the master's return!"
+	_L.yells[609]["Halion"] = "Это ваша последняя победа. Насладитесь сполна ее вкусом. Ибо когда вернется мой господин, этот мир сгинет в огне!"
 
 -- Yells/Throne_of_the_Four_Winds
-	--[[Translation missing --]]
-	_L.yells[773]["Conclave Of Wind"] = "The Conclave of Wind has dissipated. Your honorable conduct and determination have earned you the right to face me in battle, mortals. I await your assault on my platform! Come!"
+	_L.yells[773]["Conclave Of Wind"] = "Конклав Ветра распущен. Своим благородным поведением и упорством вы, смертные, заслужили право сразиться со мной лицом к лицу. Я жду вас на своей платформе. Идите же!"
 
 -- Yells/Firelands
-	--[[Translation missing --]]
-	_L.yells[800]["Ragnaros"] = "Too soon! ... You have come too soon..."
+	_L.yells[800]["Ragnaros"] = "Слишком рано!.. Вы пришли слишком рано..."
 
 -- Yells/Terrace_of_Endless_Spring
 	_L.yells[886]["Lei Shi"] = "Я... а... о! Я?.. Все было таким... мутным."
@@ -159,10 +150,12 @@ EQdkp(-Plus) CT_RaidTrackerImport 1.16.x]=]
 	MRT_L.Options["EP_EQDKP_Plus_XML"] = "EQdkp-Plus XML"
 	MRT_L.Options["EP_EQDKPTitleText"] = "Настройка EQdkp-Plus XML"
 	MRT_L.Options["EP_HTML"] = "HTML с CSS со ссылками на WoWHead"
-	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
-	MRT_L.Options["EP_Plain_Text"] = "Простой текст"
 	--[[Translation missing --]]
-	MRT_L.Options["EP_LootList_Text"] = "Onslaught Loot List"
+	MRT_L.Options["EP_JSON"] = "JSON"
+	MRT_L.Options["EP_MLDKP_15"] = "MLdkp 1.5"
+	--[[Translation missing --]]
+	MRT_L.Options["EP_Onslaught_LootList"] = "Onslaught Loot List"
+	MRT_L.Options["EP_Plain_Text"] = "Простой текст"
 	MRT_L.Options["EP_SetDateTimeFormat"] = "Время и дата"
 	MRT_L.Options["EP_TextExportTitleText"] = "Настр. текста при экспорте"
 	MRT_L.Options["EP_Title"] = "Экспорт"
@@ -255,8 +248,7 @@ Only use this option, if your DKP system is based on per boss attendance.]=]
 	MRT_L.GUI["Button_ExportNormal"] = "Экспорт Н"
 	MRT_L.GUI["Button_MakeGuildAttendanceCheck"] = "Сделать запрос на присутствие"
 	MRT_L.GUI["Button_Modify"] = "Изменить"
-	--[[Translation missing --]]
-	MRT_L.GUI["Button_Rename"] = "Rename"
+	MRT_L.GUI["Button_Rename"] = "Переименовать "
 	MRT_L.GUI["Button_ResumeLastRaid"] = "Восстановить последний рейд"
 	MRT_L.GUI["Button_StartNewRaid"] = "Начать новый рейд"
 	MRT_L.GUI["Button_TakeSnapshot"] = "Сделать снимок"
@@ -305,8 +297,7 @@ Only use this option, if your DKP system is based on per boss attendance.]=]
 	MRT_L.GUI["Note"] = "Прим."
 	MRT_L.GUI["Player not in raid."] = "Ошибка:  вы не в рейде"
 	MRT_L.GUI["Raid size"] = "Размер рейды"
-	--[[Translation missing --]]
-	MRT_L.GUI["Rename boss"] = "Rename boss"
+	MRT_L.GUI["Rename boss"] = "Переименовать босса"
 	MRT_L.GUI["Resuming last raid failed"] = "Ошибка: Последний рейд не восстановлен"
 	MRT_L.GUI["Resuming last raid successful"] = "Последний рейд восстановлен"
 	MRT_L.GUI["Tables_BossAttendeesTitle"] = "Участники"

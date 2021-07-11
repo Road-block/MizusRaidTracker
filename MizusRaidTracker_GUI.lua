@@ -4,7 +4,7 @@
 -- ********************************************************
 --
 -- This addon is written and copyrighted by:
---    * Mîzukichan @ EU-Antonidas (2010-2018)
+--    * Mîzukichan @ EU-Antonidas (2010-2021)
 --
 --    This file is part of Mizus RaidTracker.
 --
@@ -71,10 +71,8 @@ local MRT_BossLootTableColDef = {
         ["DoCellUpdate"] = function(rowFrame, cellFrame, data, cols, row, realrow, column, fShow, self, ...)
             -- icon handling
             if fShow then 
-                --MRT_Debug("self:GetCell(realrow, column) = "..self:GetCell(realrow, column));
                 local itemId = self:GetCell(realrow, column);
                 local itemTexture = GetItemIcon(itemId); 
-                --cellFrame:SetBackdrop( { bgFile = itemTexture } );            -- put this back in, if and when SetBackdrop can handle texture IDs
                 if not (cellFrame.cellItemTexture) then
                     cellFrame.cellItemTexture = cellFrame:CreateTexture();
                 end
@@ -108,11 +106,14 @@ local MRT_BossLootTableColDef = {
         ["DoCellUpdate"] = function(rowFrame, cellFrame, data, cols, row, realrow, column, fShow, self, ...)
             -- icon handling
             local lootNote = self:GetCell(realrow, column);
-            if (not cellFrame.SetBackdrop) and BackdropTemplateMixin then
-                Mixin(cellFrame, BackdropTemplateMixin)
-            end
             if fShow and lootNote then
-                cellFrame:SetBackdrop( { bgFile = "Interface\\BUTTONS\\UI-GuildButton-PublicNote-Up", insets = { left = 5, right = 5, top = 5, bottom = 5 }, } );
+                if not (cellFrame.cellLootNoteTexture) then
+                    cellFrame.cellLootNoteTexture = cellFrame:CreateTexture();
+            end
+                cellFrame.cellLootNoteTexture:SetTexture("Interface\\BUTTONS\\UI-GuildButton-PublicNote-Up")
+                cellFrame.cellLootNoteTexture:SetTexCoord(0, 1, 0, 1);
+                cellFrame.cellLootNoteTexture:Show();
+                cellFrame.cellLootNoteTexture:SetPoint("CENTER", cellFrame.cellLootNoteTexture:GetParent(), "CENTER");
                 cellFrame:SetScript("OnEnter", function() 
                                                  MRT_GUI_ItemTT:SetOwner(cellFrame, "ANCHOR_RIGHT");
                                                  MRT_GUI_ItemTT:SetText(lootNote);
@@ -123,7 +124,9 @@ local MRT_BossLootTableColDef = {
                                                  MRT_GUI_ItemTT:SetOwner(UIParent, "ANCHOR_NONE");
                                                end);
             else
-                cellFrame:SetBackdrop(nil);
+                if (cellFrame.cellLootNoteTexture) then
+                    cellFrame.cellLootNoteTexture:Hide();
+                end
                 cellFrame:SetScript("OnEnter", nil);
                 cellFrame:SetScript("OnLeave", nil);
                 MRT_GUI_ItemTT:Hide();
