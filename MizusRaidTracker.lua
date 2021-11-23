@@ -1963,23 +1963,14 @@ end
 
 -- GetNPCID - returns the NPCID or nil, if GUID was no NPC
 function MRT_GetNPCID(GUID)
-    if (uiVersion < 60000) then
-        local first3 = tonumber("0x"..strsub(GUID, 3, 5));
-        local unitType = bit.band(first3, 0x007);
-        if ((unitType == 0x003) or (unitType == 0x005)) then
-            return tonumber("0x"..strsub(GUID, 6, 10));
-        else
-            return nil;
-        end
+
+    -- Player-GUID: Player-[server ID]-[player UID]
+    -- other GUID: [Unit type]-0-[server ID]-[instance ID]-[zone UID]-[ID]-[Spawn UID]
+    local unitType, _, _, _, _, ID = strsplit("-", GUID);
+    if (unitType == "Creature") or (unitType == "Vehicle") then
+        return tonumber(ID);
     else
-        -- Player-GUID: Player-[server ID]-[player UID]
-        -- other GUID: [Unit type]-0-[server ID]-[instance ID]-[zone UID]-[ID]-[Spawn UID]
-        local unitType, _, _, _, _, ID = strsplit("-", GUID);
-        if (unitType == "Creature") or (unitType == "Vehicle") then
-            return tonumber(ID);
-        else
-            return nil;
-        end
+        return nil;
     end
 end
 

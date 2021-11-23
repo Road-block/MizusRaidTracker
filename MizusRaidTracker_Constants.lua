@@ -222,6 +222,11 @@ MRT_PvPRaids = {
 -----------------------------------
 MRT_BossIDList = {
     ------------------------------
+    -- Burning Crusade Classic  --
+    ------------------------------
+    [21216] = "Hydross the Unstable",
+
+    ------------------------------
     --  Wrath of the Lich King  --
     ------------------------------
     --  Stormwind - Added for Debuging
@@ -904,6 +909,17 @@ MRT_IgnoredItemIDList = {
     -- Sigils of...
     [87208] = true,     -- Sigil of Power
     [87209] = true,     -- Sigil of Wisdom
+
+    -- BC Classic Kael'thas legendaries
+    [30311] = true,     -- Warp Slicer
+    [30312] = true,     -- Infinity Blade
+    [30313] = true,     -- Staff of Disintegration
+    [30314] = true,     -- Phaseshift Bulwark
+    [30316] = true,     -- Devastation
+    [30317] = true,     -- Cosmic Infuser
+    [30318] = true,     -- Netherstrand Longbow
+    [30319] = true,     -- Nether Spike
+    [30320] = true,     -- Bundle of Nether Spikes
     
     -- Wrathion Legendary Questline
     [87210] = true,     -- Chimera of Fear
