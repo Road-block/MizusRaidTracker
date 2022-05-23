@@ -160,6 +160,7 @@ Configurações de exportação compatíveis com CTRT]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "Foco automático na janela de custo do saque"
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "Ignorar materiais de encantamento"
 	MRT_L.Options["ITP_IgnoreGems"] = "Ignorar gemas"
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "Rastreamento de item"
 	MRT_L.Options["ITP_TitleText"] = "MRT - Opções de rastreamento de itens"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "Use os valores de GP do EPGP"

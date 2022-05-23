@@ -196,6 +196,8 @@ EQdkp-Plus Raid-Log-Import 0.5.6.x]=]
 	--[[Translation missing --]]
 	MRT_L.Options["ITP_IgnoreGems"] = "Ignore gems"
 	--[[Translation missing --]]
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
+	--[[Translation missing --]]
 	MRT_L.Options["ITP_Title"] = "Item tracking"
 	--[[Translation missing --]]
 	MRT_L.Options["ITP_TitleText"] = "MRT - Item tracking options"

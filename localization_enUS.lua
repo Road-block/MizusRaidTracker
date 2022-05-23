@@ -156,6 +156,7 @@ EQdkp-Plus Raid-Log-Import 0.5.6.x]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "AutoFocus on loot cost dialog"
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "Ignore enchanting materials"
 	MRT_L.Options["ITP_IgnoreGems"] = "Ignore gems"
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "Item tracking"
 	MRT_L.Options["ITP_TitleText"] = "MRT - Item tracking options"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "Use EPGP GP values"

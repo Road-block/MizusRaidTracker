@@ -100,6 +100,7 @@ local MRT_Defaults = {
         ["Tracking_UseServerTime"] = false,
         ["ItemTracking_IgnoreEnchantingMats"] = true,
         ["ItemTracking_IgnoreGems"] = true,
+        ["ItemTracking_IgnoreStacks"] = true,
         ["ItemTracking_UseEPGPValues"] = false,
         ["Export_ExportFormat"] = 2,                                                -- 1: CTRT compatible, 2: EQdkp-Plus XML, 3: MLdkp 1.5,  4: plain text, 5: BBCode, 6: BBCode with wowhead, 7: CSS based HTML
         ["Export_ExportEnglish"] = false,                                           -- If activated, zone and boss names will be exported in english
@@ -716,6 +717,10 @@ function MRT_UpdateSavedOptions()
             MRT_Options["Tracking_LogBCRaids"] = true;
         end
         MRT_Options["General_OptionsVersion"] = 21;
+    end
+    if MRT_Options["General_OptionsVersion"] == 21 then
+        MRT_Options["ItemTracking_IgnoreStacks"] = true;
+        MRT_Options["General_OptionsVersion"] = 22;
     end
 end
 
@@ -1484,7 +1489,7 @@ function MRT_AutoAddLootItem(playerName, itemLink, itemCount)
     if ((mrt.isClassic or mrt.isBCC) and MRT_LootItemDupe(playerName, itemLink, itemCount)) then return; end
 	MRT_Debug("MRT_AutoAddLootItem called - playerName: "..playerName.." - itemLink: "..itemLink.." - itemCount: "..itemCount);
     -- example itemLink: |cff9d9d9d|Hitem:7073:0:0:0:0:0:0:0|h[Broken Fang]|h|r (outdated!)
-    local itemName, _, itemId, itemString, itemRarity, itemColor, itemLevel, _, itemType, itemSubType, _, _, _, _, itemClassID, itemSubClassID = MRT_GetDetailedItemInformation(itemLink);
+    local itemName, _, itemId, itemString, itemRarity, itemColor, itemLevel, _, itemType, itemSubType, itemStackCount, _, _, _, itemClassID, itemSubClassID = MRT_GetDetailedItemInformation(itemLink);
     if (not itemName == nil) then MRT_Debug("Panic! Item information lookup failed horribly. Source: MRT_AutoAddLootItem()"); return; end
     -- check options, if this item should be tracked
     if (MRT_Options["Tracking_MinItemQualityToLog"] > itemRarity) then MRT_Debug("Item not tracked - quality is too low."); return; end
@@ -1492,6 +1497,7 @@ function MRT_AutoAddLootItem(playerName, itemLink, itemCount)
     -- itemClassID 3 = "Gem", itemSubClassID 11 = "Artifact Relic"; itemClassID 7 = "Tradeskill", itemSubClassID 4 = "Jewelcrafting", 12 = Enchanting
     if (MRT_Options["ItemTracking_IgnoreGems"] and itemClassID == 3 and itemSubClassID ~= 11) then MRT_Debug("Item not tracked - it is a gem and the corresponding ignore option is on."); return; end
     if (MRT_Options["ItemTracking_IgnoreGems"] and itemClassID == 7 and itemSubClassID == 4) then MRT_Debug("Item not tracked - it is a gem and the corresponding ignore option is on."); return; end
+    if (MRT_Options["ItemTracking_IgnoreStacks"] and itemStackCount and itemStackCount > 1) then MRT_Debug("Item not tracked - it is a stackable item and the corresponding ignore option is on."); return; end
     if (MRT_Options["ItemTracking_IgnoreEnchantingMats"] and itemClassID == 7 and itemSubClassID == 12) then MRT_Debug("Item not tracked - it is a enchanting material and the corresponding ignore option is on."); return; end
     if (MRT_IgnoredItemIDList[itemId]) then MRT_Debug("Item not tracked - ItemID is listed on the ignore list"); return; end
     local dkpValue = 0;

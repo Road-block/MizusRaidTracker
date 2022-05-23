@@ -166,6 +166,8 @@ EQdkp(-Plus) CT_RaidTrackerImport 1.16.x]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "Переносить курсор в окно стоимости предметов."
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "не отслеживать вещи для зачарования"
 	MRT_L.Options["ITP_IgnoreGems"] = "Не отслеживать камни"
+	--[[Translation missing --]]
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "Отслеживание предметов"
 	MRT_L.Options["ITP_TitleText"] = "MRT - настройка отслеживания предметов"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "Использовать EPGP GP систему"

@@ -170,6 +170,8 @@ EQdkp(-Plus) CT_RaidTrackerImport 1.16.x]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "전리품 비용 다이얼로그를 자동주시"
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "마력 추출 아이템 기록 안함"
 	MRT_L.Options["ITP_IgnoreGems"] = "보석 기록 안함"
+	--[[Translation missing --]]
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "아이템 추적"
 	MRT_L.Options["ITP_TitleText"] = "MRT - 아이템 추적 옵션"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "EPGP GP 값 사용"

@@ -167,6 +167,7 @@ to or below 180 seconds to avoid attendance issues.]=]
 	--[[Translation missing --]]
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "Ignore enchanting materials"
 	MRT_L.Options["ITP_IgnoreGems"] = "忽略珠寶"
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "物品追蹤"
 	MRT_L.Options["ITP_TitleText"] = "MRT - 物品追蹤選項"
 	--[[Translation missing --]]

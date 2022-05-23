@@ -848,6 +848,31 @@
             </OnClick>
         </Scripts>
       </CheckButton>
+      <CheckButton name="$parent_IgnoreStacks_CB" inherits="OptionsCheckButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_IgnoreGems_CB" x="0" y="-5"/>
+        </Anchors>
+        <Layers>
+          <Layer level="OVERLAY">
+            <FontString name="$parent_Text" inherits="GameFontWhite" text="Ignore stacks (L)">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT"/>
+              </Anchors>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+            <OnClick>
+                local enable = self:GetChecked()
+                self:SetChecked(enable and true or false)
+                if enable then
+                    PlaySound(856)
+                else
+                    PlaySound(857)
+                end
+            </OnClick>
+        </Scripts>
+      </CheckButton>
     </Frames>
     <Scripts>
       <OnLoad>MRT_Options_ItemsTrackingPanel_OnLoad(self);</OnLoad>

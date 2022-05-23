@@ -880,6 +880,9 @@ MRT_ReverseBossIDList = {
 --  ID-List of ignored Items  --
 --------------------------------
 MRT_IgnoredItemIDList = {
+    -- Badge of...
+    [29454] = true,     -- ...Justice
+
     -- Emblems of...
     [40752] = true,     -- ...Heroism
     [40753] = true,     -- ...Valor

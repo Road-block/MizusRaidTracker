@@ -161,6 +161,7 @@ le Raid-Log-Import 0.5.6.x d'EQdkp-PLUS]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "Autofocus sur la fenêtre de coût du loot"
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "Ignorer les matériaux d'enchantement"
 	MRT_L.Options["ITP_IgnoreGems"] = "Ignorer les gemmes"
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "Suivi des objets"
 	MRT_L.Options["ITP_TitleText"] = "MRT - Option du suivi des objets"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "Utilisez les valeurs EPGP GP"

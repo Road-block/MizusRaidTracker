@@ -112,6 +112,7 @@ function MRT_Options_ParseValues()
     MRT_Options_ItemsTrackingPanel_Create_ChooseAutoFocus_DropDownMenu();
     MRT_Options_ItemsTrackingPanel_IgnoreEnchantingMats_CB_Text:SetText(MRT_L.Options["ITP_IgnoreEnchantingMats"]);
     MRT_Options_ItemsTrackingPanel_IgnoreGems_CB_Text:SetText(MRT_L.Options["ITP_IgnoreGems"]);
+    MRT_Options_ItemsTrackingPanel_IgnoreStacks_CB_Text:SetText(MRT_L.Options["ITP_IgnoreStacks"]);
     -- AttendancePanel
     MRT_Options_AttendancePanel_Title:SetText(MRT_L.Options["AP_TitleText"]);
     MRT_Options_AttendancePanel_Description:SetText("");
@@ -207,6 +208,7 @@ function MRT_Options_OnOkay(panel)
     MRT_Options["Tracking_AskCostAutoFocus"] = MRT_Lib_UIDropDownMenu_GetSelectedID(MRT_Options_ItemsTrackingPanel_ChooseAutoFocus_DropDownMenu);
     MRT_Options["ItemTracking_IgnoreEnchantingMats"] = MRT_Options_ItemsTrackingPanel_IgnoreEnchantingMats_CB:GetChecked();
     MRT_Options["ItemTracking_IgnoreGems"] = MRT_Options_ItemsTrackingPanel_IgnoreGems_CB:GetChecked();
+    MRT_Options["ItemTracking_IgnoreStacks"] = MRT_Options_ItemsTrackingPanel_IgnoreStacks_CB:GetChecked();
     -- sanity check min item level
     local minILvl = tonumber(MRT_Options_ItemsTrackingPanel_OnlyTrackItemsAbove_EB:GetText());
     if minILvl then
@@ -289,6 +291,7 @@ function MRT_Options_RestoreValues()
     MRT_Options_ItemsTrackingPanel_Create_ChooseAutoFocus_DropDownMenu();
     MRT_Options_ItemsTrackingPanel_IgnoreEnchantingMats_CB:SetChecked(MRT_Options["ItemTracking_IgnoreEnchantingMats"]);
     MRT_Options_ItemsTrackingPanel_IgnoreGems_CB:SetChecked(MRT_Options["ItemTracking_IgnoreGems"]);
+    MRT_Options_ItemsTrackingPanel_IgnoreStacks_CB:SetChecked(MRT_Options["ItemTracking_IgnoreStacks"]); -- TODO
     -- AttendancePanel
     MRT_Options_AttendancePanel_GroupRestriction:SetChecked(MRT_Options["Attendance_GroupRestriction"]);
     MRT_Options_AttendancePanel_OfflinePlayers:SetChecked(MRT_Options["Attendance_TrackOffline"]);

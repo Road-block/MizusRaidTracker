@@ -159,6 +159,7 @@ EQdkp-Plus Raid-Log-Import 0.5.6.x]=]
 	MRT_L.Options["ITP_AutoFocus_Title"] = "Automatischer Fokus auf das Loot-Kosten-Fenster"
 	MRT_L.Options["ITP_IgnoreEnchantingMats"] = "Ignoriere Verzauberungsmaterialien"
 	MRT_L.Options["ITP_IgnoreGems"] = "Ignoriere Edelsteine"
+	MRT_L.Options["ITP_IgnoreStacks"] = "Ignore stacks"
 	MRT_L.Options["ITP_Title"] = "Item Tracking"
 	MRT_L.Options["ITP_TitleText"] = "MRT - Item-Tracking-Einstellungen"
 	MRT_L.Options["ITP_UseEPGP_GP_Values"] = "Benutze EPGP GP Werte"
