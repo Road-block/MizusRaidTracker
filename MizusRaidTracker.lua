@@ -729,7 +729,7 @@ function MRT_UpdateSavedOptions()
         if (mrt.isWrath) then
             MRT_Options["Tracking_LogWotLKRaids"] = true;
         end
-        MRT_Options["General_OptionsVersion"] == 23;
+        MRT_Options["General_OptionsVersion"] = 23;
     end
 end
 
