@@ -17,6 +17,7 @@ mrt.raidSizes = { 5, 5, 10, 25, 10, 25, 25, 5, 40, 40, 3, 3, 40, 30, 30, 20, 30,
 mrt.isRetail = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_MAINLINE);
 mrt.isClassic = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC);
 mrt.isBCC = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC);
+mrt.isWrath = (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_WRATH_CLASSIC);
 
 -- these are probably not needed anymore
 MRT_ItemColorValues = {
@@ -209,6 +210,18 @@ mrt.raidZonesBCC = {
     [534] = true,       -- The Battle for Mount Hyjal
     [568] = true,       -- Zul'Aman
     [580] = true,       -- The Sunwell
+}
+
+mrt.raidZonesWrath = {
+    [624] = true,       -- Vault of Archavon
+    [533] = true,       -- Naxxramas
+    [616] = true,       -- Eye of Eternity
+    [615] = true,       -- The Obsidian Sanctum
+    [603] = true,       -- Ulduar
+    [649] = true,       -- Trial of the Crudader
+    [249] = true,       -- Onyxia's Lair
+    [631] = true,       -- Icecrown Citadel
+    [724] = true,       -- The Ruby Sanctum
 }
 
 MRT_PvPRaids = {
@@ -451,7 +464,55 @@ MRT_EncounterIDList = {
     [727] = 25165,              -- Eredar Twins
     [728] = 25741,              -- M'uru
     [729] = 25315,              -- Kil'jaeden
-    
+
+    ---------------------------------------------
+    --  Wrath of the Lich King - Classic only  --
+    ---------------------------------------------
+    -- Archavon's Chamber
+    [772] = 31125,             -- Archavon the Stone Watcher
+    [774] = 33993,             -- Emalon the Storm Watcher
+    [776] = 35013,             -- Koralon the Flame Watcher
+    [885] = 38433,             -- Toravon the Ice Watcher
+    -- Eye of Eternity
+    [734] = 28859,             -- Malygos
+    -- The Obsidian Sanctum
+    [742] = 28860,             -- Sartharion
+    -- Ulduar
+    [744] = 33113,             -- Flame Leviathan
+    [745] = 33118,              -- Ignis the Furnace Master
+    [746] = 33186,              -- Razorscale
+    [747] = 33293,              -- XT-002 Deconstructor
+    [748] = 32857,              -- The Iron Council
+    [749] = 32930,              -- Kologarn
+    [750] = 33515,              -- Auriaya
+    [751] = 32845,              -- Hodir
+    [752] = 32865,              -- Thorim
+    [753] = 32906,              -- Freya
+    [754] = 33350,              -- Mimiron
+    [755] = 33271,              -- General Vezax
+    [756] = 33288,              -- Yogg-Saron
+    [757] = 32871,              -- Algalon the Observer
+    -- Trial of the Crusader
+    [629] = 34797,              -- Northrend Beasts
+    [633] = 34780,              -- Lord Jaraxxus
+    [637] = 34445,              -- Faction Champions
+    [641] = 34497,              -- Val'kyr Twins
+    [645] = 34564,              -- Anub'arak
+    -- Icecrown Citadel
+    [845] = 36612,              -- Lord Marrowgar
+    [846] = 36855,              -- Lady Deathwhisper
+    [847] = 37215,              -- Icecrown Gunship Battle
+    [848] = 37813,              -- Deathbringer Saurfang
+    [849] = 36626,              -- Festergut
+    [850] = 36627,              -- Rotface
+    [851] = 36678,              -- Professor Putricide
+    [852] = 37972,              -- Blood Council
+    [853] = 37955,              -- Queen Lana'thel
+    [854] = 36789,              -- Valithria Dreamwalker
+    [855] = 36853,              -- Sindragosa
+    [856] = 36597,              -- The Lich King
+    -- The Ruby Sanctum
+    [887] = 39863,              -- Halion
     
 	------------------------------
     --  Wrath of the Lich King  --

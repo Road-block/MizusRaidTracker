@@ -287,6 +287,13 @@ function mrt:UI_CreateTwoRowDDM()
             { [9] = RAID_DIFFICULTY_40PLAYER },                          -- 40 Player
             { [148] = RAID_DIFFICULTY_20PLAYER },                        -- 20 Player
         }
+    elseif mrt.isWrath then
+        items = {
+            { [6] = RAID_DIFFICULTY_25PLAYER_HEROIC },
+            { [5] = RAID_DIFFICULTY_10PLAYER_HEROIC },
+            { [4] = RAID_DIFFICULTY_25PLAYER },
+            { [3] = RAID_DIFFICULTY_10PLAYER },
+        }
     else
         items = {
             { [16] = select(1, GetDifficultyInfo(16)).." (20)" },

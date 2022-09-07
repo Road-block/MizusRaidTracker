@@ -32,6 +32,8 @@ if mrt.isClassic then
     wowhead_prefix = "https://classic.wowhead.com/item="
 elseif mrt.isBCC then
     wowhead_prefix = "https://tbc.wowhead.com/item="
+elseif mrt.isWrath then
+    wowhead_prefix = "https://www.wowhead.com/wotlk/item="
 end
 
 
